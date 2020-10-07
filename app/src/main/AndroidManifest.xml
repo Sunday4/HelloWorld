@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"/>
         <activity android:name=".HomeActivity" />
         <activity android:name=".activity_khairunisa_adabbia" />
         <activity android:name=".activity_putri_ayu_maysuroh" />
