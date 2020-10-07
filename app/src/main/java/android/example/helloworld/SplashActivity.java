@@ -30,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
         progressAnimation();
 
 
-        int SPLASH_TIME = 9000;
+        int SPLASH_TIME = 3000;
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
 
     public void progressAnimation () {
         ProgressBarAnimation anim = new ProgressBarAnimation(this, progressBar, textView, 0f, 100f);
-        anim.setDuration(8000);
+        anim.setDuration(3000);
         progressBar.setAnimation(anim);
     }
 }
