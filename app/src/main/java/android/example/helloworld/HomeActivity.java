@@ -23,12 +23,15 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         recyclerView = findViewById(R.id.recycle_View);
+
         Integer[] langLogo = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3, R.drawable.pic_4};
 
-//InitialARRAY
+        String[] langName = {"Biaa", "Putri", "Yunita", "Tea"};
+
+        //InitialARRAY
         mainModels = new ArrayList<>();
         for (int i=0;i<langLogo.length;i++){
-            MainModel model = new MainModel(langLogo [i]);
+            MainModel model = new MainModel(langLogo [i], langName[i]);
             mainModels.add(model);
         }
 
@@ -44,10 +47,6 @@ public class HomeActivity extends AppCompatActivity {
         mainAdapter = new MainAdapter(HomeActivity.this,mainModels);
         //setmainadapter to recy
         recyclerView.setAdapter(mainAdapter);
-
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
     }
 }

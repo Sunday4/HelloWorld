@@ -5,17 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/design_header"
     >
-
-    <com.github.florent37.diagonallayout.DiagonalLayout
-        android:id="@+id/diagonalLayout"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:diagonal_angle="10"
-        app:diagonal_direction="left"
-        app:diagonal_position="bottom">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,11 +14,16 @@
         android:background="@drawable/design_header"
         android:orientation="vertical"
         android:scaleType="fitXY"
-        />
-
-    </com.github.florent37.diagonallayout.DiagonalLayout>
+        >
 
     <include layout="@layout/toolbar_main" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_View"
+            android:layout_width="match_parent"
+            android:layout_height="210dp" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -2,9 +2,11 @@ package android.example.helloworld;
 
 public class MainModel {
     Integer langLogo;
+    String langName;
 
-    public MainModel(Integer langLogo){
+    public MainModel(Integer langLogo, String langName){
         this.langLogo = langLogo;
+        this.langName = langName;
 
     }
 
@@ -12,4 +14,7 @@ public class MainModel {
         return langLogo;
     }
 
+    public String getLangName() {
+        return langName;
+    }
 }
