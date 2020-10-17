@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    android:background="@color/colorPrimaryDark"
+    >
 
-    <TextView
+    <com.github.florent37.diagonallayout.DiagonalLayout
+        android:id="@+id/diagonalLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="326dp"
-        android:text="HOME ACTIVITY 1"
-        android:textStyle="bold"
-        android:gravity="center_horizontal" />
+        android:layout_height="250dp"
+        app:diagonal_angle="10"
+        app:diagonal_direction="left"
+        app:diagonal_position="bottom">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/design_header"
+        android:orientation="vertical"
+        android:scaleType="fitXY"
+        />
+
+    </com.github.florent37.diagonallayout.DiagonalLayout>
+
+    <include layout="@layout/toolbar_main" />
+
 
 </RelativeLayout>
+
+
+
