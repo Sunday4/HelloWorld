@@ -34,7 +34,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         //Set LOgo imageview
         holder.imageView.setImageResource(mainModels.get(position).getLangLogo());
         // set name to textview
-
+        holder.textView.setText(mainModels.get(position).getLangName());
 
     }
 
@@ -46,13 +46,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         //initialvariable
         ImageView imageView;
-
+        TextView textView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             //assignVARIABLE
             imageView = itemView.findViewById(R.id.image_view);
-
+            textView = itemView.findViewById(R.id.text_view);
         }
     }
 }
