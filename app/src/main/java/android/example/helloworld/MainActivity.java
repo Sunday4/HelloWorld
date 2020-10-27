@@ -6,12 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.WindowManager;
-
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     ArrayList<MainModel> mainModels;
@@ -20,9 +18,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.recycle_View);
+        recyclerView = findViewById(R.id.recycle_view);
 
         Integer[] langLogo = {R.drawable.pic_1, R.drawable.pic_2, R.drawable.pic_3, R.drawable.pic_4};
 
@@ -37,14 +35,14 @@ public class HomeActivity extends AppCompatActivity {
 
         //DesignHorizontal
         LinearLayoutManager layoutManager = new LinearLayoutManager(
-                HomeActivity.this,LinearLayoutManager.HORIZONTAL,false
+                MainActivity.this,LinearLayoutManager.HORIZONTAL,false
         );
 
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         //initial mainadapter
-        mainAdapter = new MainAdapter(HomeActivity.this,mainModels);
+        mainAdapter = new MainAdapter(MainActivity.this,mainModels);
         //setmainadapter to recy
         recyclerView.setAdapter(mainAdapter);
 

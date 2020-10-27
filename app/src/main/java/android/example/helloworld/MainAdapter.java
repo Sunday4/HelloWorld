@@ -16,7 +16,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     ArrayList<MainModel> mainModels;
     Context context;
 
-    public MainAdapter(Context context, ArrayList<MainModel>mainModels){
+    public MainAdapter(Context context,ArrayList<MainModel>mainModels){
         this.context = context;
         this.mainModels = mainModels;
     }
@@ -56,3 +56,4 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         }
     }
 }
+
