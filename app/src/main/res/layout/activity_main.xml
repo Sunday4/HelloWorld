@@ -1,27 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/design_header"
-    >
-    <LinearLayout
+    android:background="@drawable/background"
+    android:fitsSystemWindows="true">
+
+    <include layout="@layout/toolbar_main" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        >
+        android:layout_below="@+id/toolbar">
 
-        <include layout="@layout/toolbar_main" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycle_view"
+        <FrameLayout
+            android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="match_parent" />
 
-    </LinearLayout>
+        <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+            android:id="@+id/navigationBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/bg_rounded"
+            android:elevation="8dp"
+            android:padding="5dp">
 
-</androidx.core.widget.NestedScrollView>
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/tabFilm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:bt_colorActive="@color/colorPrimaryDark"
+                app:bt_colorInactive="@color/colorPrimaryDark"
+                app:bt_icon="@drawable/ic_movie"
+                app:bt_shape="@drawable/tab_color"
+                app:bt_title="Movie"
+                app:bt_titlePadding="5dp"
+                app:bt_titleSize="10sp" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/tabFav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/colorPrimaryDark"
+                app:bt_icon="@drawable/ic_favorite"
+                app:bt_shape="@drawable/tab_color"
+                app:bt_title="Favorite"
+                app:bt_titlePadding="5dp"
+                app:bt_titleSize="10sp" />
+
+        </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>
