@@ -58,29 +58,29 @@ public class FragmentMovie extends Fragment implements MainAdapter.onSelectData,
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Sedang menampilkan data");
 
-        searchFilm = rootView.findViewById(R.id.searchFilm);
-        searchFilm.setQueryHint(getString(R.string.search_film));
-        searchFilm.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                setSearchMovie(query);
-                return false;
-            }
+//        searchFilm = rootView.findViewById(R.id.searchFilm);
+//        searchFilm.setQueryHint(getString(R.string.search_film));
+//        searchFilm.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                setSearchMovie(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                if (newText.equals(""))
+//                    getMovie();
+//                return false;
+//            }
+//        });
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                if (newText.equals(""))
-                    getMovie();
-                return false;
-            }
-        });
-
-        int searchPlateId = searchFilm.getContext().getResources()
-                .getIdentifier("android:id/search_plate", null, null);
-        View searchPlate = searchFilm.findViewById(searchPlateId);
-        if (searchPlate != null) {
-            searchPlate.setBackgroundColor(Color.TRANSPARENT);
-        }
+//        int searchPlateId = searchFilm.getContext().getResources()
+//                .getIdentifier("android:id/search_plate", null, null);
+//        View searchPlate = searchFilm.findViewById(searchPlateId);
+//        if (searchPlate != null) {
+//            searchPlate.setBackgroundColor(Color.TRANSPARENT);
+//        }
 
         rvNowPlaying = rootView.findViewById(R.id.rvNowPlaying);
         rvNowPlaying.setHasFixedSize(true);
