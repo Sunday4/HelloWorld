@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import android.example.helloworld.FragmentFavoriteMovie;
-
 public class ViewPageAdapter extends FragmentPagerAdapter {
 
     private final Fragment[] tabFragments;
@@ -14,8 +12,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
     public ViewPageAdapter(FragmentManager fragmentManager) {
         super(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         tabFragments = new Fragment[]{
-                new FragmentFavoriteMovie(),
-//                new FragmentFavoriteTv()
+
         };
     }
 

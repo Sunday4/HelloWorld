@@ -65,19 +65,27 @@
 
                 </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/tvRealeseDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
+<!--                <TextView-->
+<!--                    android:id="@+id/tvRealeseDate"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="bottom|end"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:background="@drawable/bg_rounded"-->
+<!--                    android:backgroundTint="@color/colorPrimaryDark"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:textColor="@android:color/white"-->
+<!--                    android:textSize="8sp"-->
+<!--                    android:textStyle="bold" />-->
+
+                <ImageView
+                    android:id="@+id/imgPhoto"
+                    android:layout_width="90dp"
+                    android:layout_height="111dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_rounded"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:padding="5dp"
-                    android:textColor="@android:color/white"
-                    android:textSize="8sp"
-                    android:textStyle="bold" />
+                    android:scaleType="fitCenter" />
 
             </androidx.cardview.widget.CardView>
 
@@ -90,14 +98,6 @@
             android:layout_marginStart="20dp"
             android:layout_marginBottom="10dp"
             android:gravity="center">
-
-            <ImageView
-                android:id="@+id/imgPhoto"
-                android:layout_width="90dp"
-                android:layout_height="140dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="10dp"
-                android:scaleType="fitCenter" />
 
         </LinearLayout>
 

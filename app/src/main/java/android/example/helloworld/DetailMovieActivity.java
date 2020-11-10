@@ -26,7 +26,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+//import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -41,18 +41,20 @@ public class DetailMovieActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     TextView tvTitle, tvName, tvRating, tvRelease, tvPopularity, tvOverview;
-    ImageView imgCover, imgPhoto;
+//    ImageView imgCover;
+    ImageView imgPhoto;
     RecyclerView rvTrailer;
-    MaterialFavoriteButton imgFavorite;
-    FloatingActionButton fabShare;
+    //MaterialFavoriteButton imgFavorite;
+//    FloatingActionButton fabShare;
     RatingBar ratingBar;
-    String NameFilm, ReleaseDate, Popularity, Overview, Cover, Thumbnail, movieURL;
+    String NameFilm, ReleaseDate, Popularity, Overview, Thumbnail, movieURL;
+//    String Cover;
     int Id;
     double Rating;
     ModelMovie modelMovie;
     ProgressDialog progressDialog;
     List<ModelTrailer> modelTrailer = new ArrayList<>();
-    TrailerAdapter trailerAdapter;
+//    TrailerAdapter trailerAdapter;
     RealmHelper helper;
 
     @Override
@@ -80,17 +82,16 @@ public class DetailMovieActivity extends AppCompatActivity {
         progressDialog.setMessage("Sedang menampilkan trailer");
 
         ratingBar = findViewById(R.id.ratingBar);
-        imgCover = findViewById(R.id.imgCover);
+//        imgCover = findViewById(R.id.imgCover);
         imgPhoto = findViewById(R.id.imgPhoto);
-        imgFavorite = findViewById(R.id.imgFavorite);
         tvTitle = findViewById(R.id.tvTitle);
         tvName = findViewById(R.id.tvName);
         tvRating = findViewById(R.id.tvRating);
         tvRelease = findViewById(R.id.tvRelease);
         tvPopularity = findViewById(R.id.tvPopularity);
         tvOverview = findViewById(R.id.tvOverview);
-        rvTrailer = findViewById(R.id.rvTrailer);
-        fabShare = findViewById(R.id.fabShare);
+//        rvTrailer = findViewById(R.id.rvTrailer);
+//        fabShare = findViewById(R.id.fabShare);
 
         helper = new RealmHelper(this);
 
@@ -103,7 +104,7 @@ public class DetailMovieActivity extends AppCompatActivity {
             ReleaseDate = modelMovie.getReleaseDate();
             Popularity = modelMovie.getPopularity();
             Overview = modelMovie.getOverview();
-            Cover = modelMovie.getBackdropPath();
+//            Cover = modelMovie.getBackdropPath();
             Thumbnail = modelMovie.getPosterPath();
             movieURL = ApiEndpoint.URLFILM + "" + Id;
 
@@ -121,104 +122,104 @@ public class DetailMovieActivity extends AppCompatActivity {
             ratingBar.setStepSize((float) 0.5);
             ratingBar.setRating(newValue / 2);
 
-            Glide.with(this)
-                    .load(ApiEndpoint.URLIMAGE + Thumbnail)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(imgCover);
+//            Glide.with(this)
+//                    .load(ApiEndpoint.URLIMAGE + Thumbnail)
+//                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                    .into(imgCover);
 
             Glide.with(this)
                     .load(ApiEndpoint.URLIMAGE + Thumbnail)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(imgPhoto);
 
-            rvTrailer.setHasFixedSize(true);
-            rvTrailer.setLayoutManager(new LinearLayoutManager(this));
+//            rvTrailer.setHasFixedSize(true);
+//            rvTrailer.setLayoutManager(new LinearLayoutManager(this));
 
-            getTrailer();
+//            getTrailer();
 
         }
 
-        imgFavorite.setOnFavoriteChangeListener(
-                new MaterialFavoriteButton.OnFavoriteChangeListener() {
-                    @Override
-                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
-                        if (favorite) {
-                            Id = modelMovie.getId();
-                            NameFilm = modelMovie.getTitle();
-                            Rating = modelMovie.getVoteAverage();
-                            Overview = modelMovie.getOverview();
-                            ReleaseDate = modelMovie.getReleaseDate();
-                            Thumbnail = modelMovie.getPosterPath();
-                            Cover = modelMovie.getBackdropPath();
-                            Popularity = modelMovie.getPopularity();
-                            helper.addFavoriteMovie(Id, NameFilm, Rating, Overview, ReleaseDate, Thumbnail, Cover, Popularity);
-                            Snackbar.make(buttonView, modelMovie.getTitle() + " Added to Favorite",
-                                    Snackbar.LENGTH_SHORT).show();
-                        } else {
-                            helper.deleteFavoriteMovie(modelMovie.getId());
-                            Snackbar.make(buttonView, modelMovie.getTitle() + " Removed from Favorite",
-                                    Snackbar.LENGTH_SHORT).show();
-                        }
+//        imgFavorite.setOnFavoriteChangeListener(
+//                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+//                    @Override
+//                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+//                        if (favorite) {
+//                            Id = modelMovie.getId();
+//                            NameFilm = modelMovie.getTitle();
+//                            Rating = modelMovie.getVoteAverage();
+//                            Overview = modelMovie.getOverview();
+//                            ReleaseDate = modelMovie.getReleaseDate();
+//                            Thumbnail = modelMovie.getPosterPath();
+//                            Cover = modelMovie.getBackdropPath();
+//                            Popularity = modelMovie.getPopularity();
+//                            helper.addFavoriteMovie(Id, NameFilm, Rating, Overview, ReleaseDate, Thumbnail, Cover, Popularity);
+//                            Snackbar.make(buttonView, modelMovie.getTitle() + " Added to Favorite",
+//                                    Snackbar.LENGTH_SHORT).show();
+//                        } else {
+//                            helper.deleteFavoriteMovie(modelMovie.getId());
+//                            Snackbar.make(buttonView, modelMovie.getTitle() + " Removed from Favorite",
+//                                    Snackbar.LENGTH_SHORT).show();
+//                        }
+//
+//                    }
+//                }
+//        );
 
-                    }
-                }
-        );
-
-        fabShare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                String subject = modelMovie.getTitle();
-                String description = modelMovie.getOverview();
-                shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, subject + "\n\n" + description + "\n\n" + movieURL);
-                startActivity(Intent.createChooser(shareIntent, "Bagikan dengan :"));
-            }
-        });
+//        fabShare.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                shareIntent.setType("text/plain");
+//                String subject = modelMovie.getTitle();
+//                String description = modelMovie.getOverview();
+//                shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+//                shareIntent.putExtra(Intent.EXTRA_TEXT, subject + "\n\n" + description + "\n\n" + movieURL);
+//                startActivity(Intent.createChooser(shareIntent, "Bagikan dengan :"));
+//            }
+//        });
 
     }
 
-    private void getTrailer() {
-        progressDialog.show();
-        AndroidNetworking.get(ApiEndpoint.BASEURL + ApiEndpoint.MOVIE_VIDEO + ApiEndpoint.APIKEY + ApiEndpoint.LANGUAGE)
-                .addPathParameter("id", String.valueOf(Id))
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsJSONObject(new JSONObjectRequestListener() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            progressDialog.dismiss();
-                            JSONArray jsonArray = response.getJSONArray("results");
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                ModelTrailer dataApi = new ModelTrailer();
-                                dataApi.setKey(jsonObject.getString("key"));
-                                dataApi.setType(jsonObject.getString("type"));
-                                modelTrailer.add(dataApi);
-                                showTrailer();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(DetailMovieActivity.this,
-                                    "Gagal menampilkan data!", Toast.LENGTH_SHORT).show();
-                        }
-                    }
+//    private void getTrailer() {
+//        progressDialog.show();
+//        AndroidNetworking.get(ApiEndpoint.BASEURL + ApiEndpoint.MOVIE_VIDEO + ApiEndpoint.APIKEY + ApiEndpoint.LANGUAGE)
+//                .addPathParameter("id", String.valueOf(Id))
+//                .setPriority(Priority.HIGH)
+//                .build()
+//                .getAsJSONObject(new JSONObjectRequestListener() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        try {
+//                            progressDialog.dismiss();
+//                            JSONArray jsonArray = response.getJSONArray("results");
+//                            for (int i = 0; i < jsonArray.length(); i++) {
+//                                JSONObject jsonObject = jsonArray.getJSONObject(i);
+//                                ModelTrailer dataApi = new ModelTrailer();
+//                                dataApi.setKey(jsonObject.getString("key"));
+//                                dataApi.setType(jsonObject.getString("type"));
+//                                modelTrailer.add(dataApi);
+//                                showTrailer();
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                            Toast.makeText(DetailMovieActivity.this,
+//                                    "Gagal menampilkan data!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(ANError anError) {
+//                        progressDialog.dismiss();
+//                        Toast.makeText(DetailMovieActivity.this,
+//                                "Tidak ada jaringan internet!", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//    }
 
-                    @Override
-                    public void onError(ANError anError) {
-                        progressDialog.dismiss();
-                        Toast.makeText(DetailMovieActivity.this,
-                                "Tidak ada jaringan internet!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
-    private void showTrailer() {
-        trailerAdapter = new TrailerAdapter(DetailMovieActivity.this, modelTrailer);
-        rvTrailer.setAdapter(trailerAdapter);
-    }
+//    private void showTrailer() {
+//        trailerAdapter = new TrailerAdapter(DetailMovieActivity.this, modelTrailer);
+//        rvTrailer.setAdapter(trailerAdapter);
+//    }
 
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
         Window window = activity.getWindow();

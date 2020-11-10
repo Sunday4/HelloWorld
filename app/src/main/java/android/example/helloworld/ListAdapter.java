@@ -46,7 +46,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         Rating = data.getVoteAverage();
         holder.tvTitle.setText(data.getTitle());
-        holder.tvRealeseDate.setText(data.getReleaseDate());
+//        holder.tvRealeseDate.setText(data.getReleaseDate());
         holder.tvDesc.setText(data.getOverview());
 
         float newValue = (float)Rating;
@@ -80,7 +80,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         public CardView cvFilm;
         public ImageView imgPhoto;
         public TextView tvTitle;
-        public TextView tvRealeseDate;
+//        public TextView tvRealeseDate;
         public TextView tvDesc;
         public RatingBar ratingBar;
 
@@ -89,7 +89,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             cvFilm = itemView.findViewById(R.id.cvFilm);
             imgPhoto = itemView.findViewById(R.id.imgPhoto);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvRealeseDate = itemView.findViewById(R.id.tvRealeseDate);
+//            tvRealeseDate = itemView.findViewById(R.id.tvRealeseDate);
             tvDesc = itemView.findViewById(R.id.tvDesc);
             ratingBar = itemView.findViewById(R.id.ratingBar);
         }
