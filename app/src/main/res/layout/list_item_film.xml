@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -36,6 +38,7 @@
                         android:layout_centerInParent="true"
                         android:orientation="vertical">
 
+
                         <TextView
                             android:id="@+id/tvTitle"
                             android:layout_width="wrap_content"
@@ -45,21 +48,20 @@
                             android:textSize="18sp" />
 
                         <TextView
-                            android:id="@+id/tvDesc"
+                            android:id="@+id/tvRealeseDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:textAlignment="viewStart"
+                            android:text="Realese Date :"
                             android:textColor="@android:color/black"
-                            android:textSize="12sp" />
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-                        <RatingBar
-                            android:id="@+id/ratingBar"
-                            style="@style/Widget.AppCompat.RatingBar.Small"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:progressTint="@color/colorPrimary" />
+<!--                        <RatingBar-->
+<!--                            android:id="@+id/ratingBar"-->
+<!--                            style="@style/Widget.AppCompat.RatingBar.Small"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:progressTint="@color/colorPrimary" />-->
 
                     </LinearLayout>
 

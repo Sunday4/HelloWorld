@@ -22,7 +22,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private List<ModelMovie> items;
     private ListAdapter.onSelectData onSelectData;
     private Context mContext;
-    private double Rating;
+//    private double Rating;
 
     public interface onSelectData {
         void onSelected(ModelMovie modelMovie);
@@ -44,15 +44,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(ListAdapter.ViewHolder holder, int position) {
         final ModelMovie data = items.get(position);
 
-        Rating = data.getVoteAverage();
+//        Rating = data.getVoteAverage();
         holder.tvTitle.setText(data.getTitle());
-//        holder.tvRealeseDate.setText(data.getReleaseDate());
-        holder.tvDesc.setText(data.getOverview());
+        holder.tvRealeseDate.setText(data.getReleaseDate());
+//        holder.tvDesc.setText(data.getOverview());
 
-        float newValue = (float)Rating;
-        holder.ratingBar.setNumStars(5);
-        holder.ratingBar.setStepSize((float) 0.5);
-        holder.ratingBar.setRating(newValue / 2);
+//        float newValue = (float)Rating;
+//        holder.ratingBar.setNumStars(5);
+//        holder.ratingBar.setStepSize((float) 0.5);
+//        holder.ratingBar.setRating(newValue / 2);
 
         Glide.with(mContext)
                 .load(ApiEndpoint.URLIMAGE + data.getPosterPath())
@@ -80,18 +80,18 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         public CardView cvFilm;
         public ImageView imgPhoto;
         public TextView tvTitle;
-//        public TextView tvRealeseDate;
-        public TextView tvDesc;
-        public RatingBar ratingBar;
+        public TextView tvRealeseDate;
+//        public TextView tvDesc;
+//        public RatingBar ratingBar;
 
         public ViewHolder(View itemView) {
             super(itemView);
             cvFilm = itemView.findViewById(R.id.cvFilm);
             imgPhoto = itemView.findViewById(R.id.imgPhoto);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-//            tvRealeseDate = itemView.findViewById(R.id.tvRealeseDate);
-            tvDesc = itemView.findViewById(R.id.tvDesc);
-            ratingBar = itemView.findViewById(R.id.ratingBar);
+            tvRealeseDate = itemView.findViewById(R.id.tvRealeseDate);
+//            tvDesc = itemView.findViewById(R.id.tvDesc);
+//            ratingBar = itemView.findViewById(R.id.ratingBar);
         }
     }
 
