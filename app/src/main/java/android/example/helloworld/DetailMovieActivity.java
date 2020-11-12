@@ -4,16 +4,20 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,7 +30,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-//import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -41,21 +45,21 @@ public class DetailMovieActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     TextView tvTitle, tvName, tvRating, tvRelease, tvPopularity, tvOverview;
-//    ImageView imgCover;
-    ImageView imgPhoto;
-    RecyclerView rvTrailer;
+    ImageView imgCover;
+//    ImageView imgPhoto;
+//    RecyclerView rvTrailer;
     //MaterialFavoriteButton imgFavorite;
 //    FloatingActionButton fabShare;
     RatingBar ratingBar;
     String NameFilm, ReleaseDate, Popularity, Overview, Thumbnail, movieURL;
-//    String Cover;
+    String Cover;
     int Id;
     double Rating;
     ModelMovie modelMovie;
     ProgressDialog progressDialog;
-    List<ModelTrailer> modelTrailer = new ArrayList<>();
+//    List<ModelTrailer> modelTrailer = new ArrayList<>();
 //    TrailerAdapter trailerAdapter;
-    RealmHelper helper;
+//    RealmHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +86,8 @@ public class DetailMovieActivity extends AppCompatActivity {
         progressDialog.setMessage("Sedang menampilkan trailer");
 
         ratingBar = findViewById(R.id.ratingBar);
-//        imgCover = findViewById(R.id.imgCover);
-        imgPhoto = findViewById(R.id.imgPhoto);
+        imgCover = findViewById(R.id.imgCover);
+//        imgPhoto = findViewById(R.id.imgPhoto);
         tvTitle = findViewById(R.id.tvTitle);
         tvName = findViewById(R.id.tvName);
         tvRating = findViewById(R.id.tvRating);
@@ -93,7 +97,7 @@ public class DetailMovieActivity extends AppCompatActivity {
 //        rvTrailer = findViewById(R.id.rvTrailer);
 //        fabShare = findViewById(R.id.fabShare);
 
-        helper = new RealmHelper(this);
+//        helper = new RealmHelper(this);
 
         modelMovie = (ModelMovie) getIntent().getSerializableExtra("detailMovie");
         if (modelMovie != null) {
@@ -104,7 +108,7 @@ public class DetailMovieActivity extends AppCompatActivity {
             ReleaseDate = modelMovie.getReleaseDate();
             Popularity = modelMovie.getPopularity();
             Overview = modelMovie.getOverview();
-//            Cover = modelMovie.getBackdropPath();
+            Cover = modelMovie.getBackdropPath();
             Thumbnail = modelMovie.getPosterPath();
             movieURL = ApiEndpoint.URLFILM + "" + Id;
 
@@ -122,19 +126,28 @@ public class DetailMovieActivity extends AppCompatActivity {
             ratingBar.setStepSize((float) 0.5);
             ratingBar.setRating(newValue / 2);
 
-//            Glide.with(this)
-//                    .load(ApiEndpoint.URLIMAGE + Thumbnail)
-//                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                    .into(imgCover);
-
             Glide.with(this)
                     .load(ApiEndpoint.URLIMAGE + Thumbnail)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(imgPhoto);
+                    .into(imgCover);
+
+//            Glide.with(this)
+//                    .load(ApiEndpoint.URLIMAGE + Thumbnail)
+//                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                    .into(imgPhoto);
+
+//            VideoView videoView = findViewById(R.id.btnTrailer);
+//            String videoPath = "android.resource://" + getPackageName() + "/" + R.id.rvTrailer;
+//            Uri uri = Uri.parse(videoPath);
+//            videoView.setVideoURI(uri);
+//
+//            MediaController mediaController = new MediaController(this);
+//            videoView.setMediaController(mediaController);
+//            mediaController.setAnchorView(videoView);
 
 //            rvTrailer.setHasFixedSize(true);
 //            rvTrailer.setLayoutManager(new LinearLayoutManager(this));
-
+//
 //            getTrailer();
 
         }
@@ -215,7 +228,7 @@ public class DetailMovieActivity extends AppCompatActivity {
 //                    }
 //                });
 //    }
-
+//
 //    private void showTrailer() {
 //        trailerAdapter = new TrailerAdapter(DetailMovieActivity.this, modelTrailer);
 //        rvTrailer.setAdapter(trailerAdapter);
