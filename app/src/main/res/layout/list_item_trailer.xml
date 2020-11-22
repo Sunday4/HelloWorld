@@ -3,11 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="180dp">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal">-->
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="180dp">
@@ -19,19 +14,5 @@
             />
 
         </FrameLayout>
-
-
-
-<!--        <Button-->
-<!--            android:id="@+id/btnTrailer"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:background="@drawable/bg_rounded"-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="14sp" />-->
-
-<!--    </LinearLayout>-->
 
 </RelativeLayout>
