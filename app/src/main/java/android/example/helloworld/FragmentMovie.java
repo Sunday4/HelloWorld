@@ -2,7 +2,6 @@ package android.example.helloworld;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +17,6 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import android.example.helloworld.R;
-import android.example.helloworld.DetailMovieActivity;
-import android.example.helloworld.ListAdapter;
-import android.example.helloworld.MainAdapter;
-import android.example.helloworld.ModelMovie;
-import android.example.helloworld.ApiEndpoint;
 import com.ramotion.cardslider.CardSliderLayoutManager;
 import com.ramotion.cardslider.CardSnapHelper;
 
@@ -57,30 +50,6 @@ public class FragmentMovie extends Fragment implements MainAdapter.onSelectData,
         progressDialog.setTitle("Mohon Tunggu");
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Sedang menampilkan data");
-
-//        searchFilm = rootView.findViewById(R.id.searchFilm);
-//        searchFilm.setQueryHint(getString(R.string.search_film));
-//        searchFilm.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                setSearchMovie(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                if (newText.equals(""))
-//                    getMovie();
-//                return false;
-//            }
-//        });
-
-//        int searchPlateId = searchFilm.getContext().getResources()
-//                .getIdentifier("android:id/search_plate", null, null);
-//        View searchPlate = searchFilm.findViewById(searchPlateId);
-//        if (searchPlate != null) {
-//            searchPlate.setBackgroundColor(Color.TRANSPARENT);
-//        }
 
         rvNowPlaying = rootView.findViewById(R.id.rvNowPlaying);
         rvNowPlaying.setHasFixedSize(true);

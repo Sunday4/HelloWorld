@@ -10,8 +10,6 @@ import android.widget.Button;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.example.helloworld.R;
-import android.example.helloworld.ModelTrailer;
 
 import java.util.List;
 

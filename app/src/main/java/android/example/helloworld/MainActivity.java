@@ -9,13 +9,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
-import android.example.helloworld.FragmentMovie;
-
-//import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
-import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,25 +32,7 @@ public class MainActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
         }
 
-//        BubbleNavigationLinearView navigationBar = findViewById(R.id.navigationBar);
-//
-//        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigationBar.getLayoutParams();
-//        layoutParams.setBehavior(new BottomBarBehavior());
-
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new FragmentMovie()).commit();
-
-//        navigationBar.setNavigationChangeListener(new BubbleNavigationChangeListener() {
-//            @Override
-//            public void onNavigationChanged(View view, int position) {
-//                switch (position) {
-//                    case 0:
-//                        fragment = new FragmentMovie();
-//                        break;
-//
-//                }
-//                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
-//            }
-//        });
     }
 
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
