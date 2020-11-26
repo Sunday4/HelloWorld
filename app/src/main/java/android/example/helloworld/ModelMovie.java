@@ -2,9 +2,7 @@ package android.example.helloworld;
 
 import java.io.Serializable;
 
-import io.realm.RealmObject;
-
-public class ModelMovie extends RealmObject implements Serializable {
+public class ModelMovie implements Serializable {
 
     private int Id;
     private String Title;
