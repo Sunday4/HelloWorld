@@ -55,11 +55,9 @@ public class DetailMovieActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Sedang menampilkan trailer");
 
-        ratingBar = findViewById(R.id.ratingBar);
         imgCover = findViewById(R.id.imgCover);
         tvTitle = findViewById(R.id.tvTitle);
         tvName = findViewById(R.id.tvName);
-        tvRating = findViewById(R.id.tvRating);
         tvRelease = findViewById(R.id.tvRelease);
         tvPopularity = findViewById(R.id.tvPopularity);
         tvOverview = findViewById(R.id.tvOverview);
@@ -69,7 +67,6 @@ public class DetailMovieActivity extends AppCompatActivity {
 
             Id = modelMovie.getId();
             NameFilm = modelMovie.getTitle();
-            Rating = modelMovie.getVoteAverage();
             ReleaseDate = modelMovie.getReleaseDate();
             Popularity = modelMovie.getPopularity();
             Overview = modelMovie.getOverview();
@@ -79,17 +76,11 @@ public class DetailMovieActivity extends AppCompatActivity {
 
             tvTitle.setText(NameFilm);
             tvName.setText(NameFilm);
-            tvRating.setText(Rating + "/10");
             tvRelease.setText(ReleaseDate);
             tvPopularity.setText(Popularity);
             tvOverview.setText(Overview);
             tvTitle.setSelected(true);
             tvName.setSelected(true);
-
-            float newValue = (float)Rating;
-            ratingBar.setNumStars(5);
-            ratingBar.setStepSize((float) 0.5);
-            ratingBar.setRating(newValue / 2);
 
             Glide.with(this)
                     .load(ApiEndpoint.URLIMAGE + Thumbnail)
