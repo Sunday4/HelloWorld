@@ -92,7 +92,7 @@
                             android:id="@+id/tvDesc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="SINOPSIS :"
+                            android:text="OVERVIEW :"
                             android:textColor="@android:color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -110,7 +110,7 @@
                             android:id="@+id/tvRealeseDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tanggal Rilis :"
+                            android:text="Release Date :"
                             android:textColor="@android:color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
